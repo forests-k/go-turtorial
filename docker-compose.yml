@@ -1,0 +1,12 @@
+version: '3' # composeファイルのバージョン
+services:
+  turtorial: # サービス名
+    container_name: turtorial
+    build: # ビルドに使うDockerファイルのパス
+      context: .
+      dockerfile: ./build/Dockerfile
+    volumes: # マウントディレクトリ
+      - ./cmd:/go/src/app
+    tty: true # コンテナの永続化
+    environment:
+      - TZ=Asia/Tokyo
